@@ -8,10 +8,10 @@ type LanguagesProps = {
   list: LanguageType[];
 };
 const Languages = ({ list }: LanguagesProps) => (
-  <section>
-    <h3>Languages</h3>
+  <section className="rounded-lg bg-white/5 p-5 shadow-xl">
+    <h3 className="text-xl">Languages</h3>
     {list && list.length && (
-      <ul>
+      <ul className="list-inside list-disc">
         {list.map((item) => (
           <li key={item.slug}>
             {item.name} : {item.level}

@@ -1,15 +1,34 @@
 import Layout from '@/components/Layout';
 import '@/styles/globals.css';
-import type { AppProps } from 'next/app';
+import { NextComponentType } from 'next';
+import { AppContext, AppInitialProps, AppLayoutProps } from 'next/app';
 import Head from 'next/head';
+import { ReactNode, useEffect } from 'react';
 
-export default function App({ Component, pageProps }: AppProps) {
+const MyApp: NextComponentType<AppContext, AppInitialProps, AppLayoutProps> = ({
+  Component,
+  pageProps,
+}: AppLayoutProps) => {
+  const getLayout = Component.getLayout || ((page: ReactNode) => page);
+  useEffect(() => {
+    const importTE = async () => {
+      (await import('tw-elements' as never)).default;
+    };
+    importTE();
+  }, []);
   return (
     <Layout>
       <Head>
+        <meta charSet="UTF-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link
+          href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+          rel="stylesheet"
+        />
       </Head>
-      <Component {...pageProps} />
+      {getLayout(<Component {...pageProps} />)}
     </Layout>
   );
-}
+};
+export default MyApp;

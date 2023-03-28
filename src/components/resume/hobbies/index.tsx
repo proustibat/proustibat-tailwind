@@ -6,13 +6,15 @@ export type HobbiesProps = {
   list: HobbyType[];
 };
 const Hobbies = ({ list }: HobbiesProps) => (
-  <section>
-    <h3>Hobbies</h3>
-    <div>
-      {list.map((item) => (
-        <span key={item.slug}>{item.name}</span>
-      ))}
-    </div>
+  <section className="rounded-lg bg-white/5 p-5 shadow-xl">
+    <h3 className="text-xl">Hobbies</h3>
+    {list && list.length && (
+      <ul className="list-inside list-disc">
+        {list.map((item) => (
+          <li key={item.slug}>{item.name}</li>
+        ))}
+      </ul>
+    )}
   </section>
 );
 

@@ -11,6 +11,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.13",
+    "@heroicons/react": "^2.0.16",
     "@next/bundle-analyzer": "13.2.3",
     "@notionhq/client": "^2.2.3",
     "@types/node": "18.14.6",
@@ -21,7 +23,8 @@
     "notion-to-md": "^2.5.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-markdown": "^8.0.6"
+    "react-markdown": "^8.0.6",
+    "tw-elements": "^1.0.0-beta1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.54.1",

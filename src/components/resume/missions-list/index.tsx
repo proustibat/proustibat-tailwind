@@ -7,12 +7,11 @@ type Props = {
 };
 
 const MissionsList = ({ missions }: Props) => (
-  <ul>
-    <p>Missions</p>
+  <div>
     {missions.map((mission) => (
       <MissionItem key={mission.slug} {...mission} />
     ))}
-  </ul>
+  </div>
 );
 
 export default MissionsList;
